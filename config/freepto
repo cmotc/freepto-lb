@@ -7,7 +7,7 @@ LINUX_FLAVOURS='amd64 486'
 LOCALE='it_IT.UTF-8'
 ZONE='Europe/Rome'
 KEYMAP='it'
-MIRROR='http://http.debian.net/debian/'
+MIRROR='https://mirror.cse.unsw.edu.au/debian/'
 HDD_LABEL="FREEPTO"
 
 BUILDING_DATE="`date '+%Y%m%d'`"
