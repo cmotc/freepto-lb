@@ -75,7 +75,7 @@ lb config noauto \
     --system live \
     --hdd-label $HDD_LABEL \
     --apt-source-archives false \
-    --debian-installer false \
+    --debian-installer true \
     --debian-installer-gui false \
     --bootappend-install noprompt \
     --mirror-bootstrap $MIRROR \
@@ -96,7 +96,7 @@ lb config noauto \
     live-config.locales=$LOCALE live-config.timezone=$ZONE live-config.keyboard-layouts=$KEYMAP live-boot.keymap=$KEYMAP \
     $persistence_media \
     " \
-    --archive-areas "main contrib non-free" \
+    --archive-areas "main" \
     --apt-recommends true
 
 cd config/package-lists
