@@ -1,8 +1,8 @@
 # base X software; without these, expect X not to be working
 
 # XFCE4
-task-laptop
-xfce4-appfinder
-libxfce4ui-utils
-task-xfce-desktop
-xfce4-session
+#task-laptop
+#xfce4-appfinder
+#libxfce4ui-utils
+#task-xfce-desktop
+#xfce4-session

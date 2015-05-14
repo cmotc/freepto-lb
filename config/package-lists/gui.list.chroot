@@ -3,19 +3,19 @@
 gigolo
 
 # Flash (Shit!)
-flashplugin-nonfree
+#flashplugin-nonfree
 
 # LibreOffice
-libreoffice-writer
-libreoffice-calc
-libreoffice-impress
+#libreoffice-writer
+#libreoffice-calc
+#libreoffice-impress
 
 # Multimedia
 deb-multimedia-keyring
 w32codecs
 libdvdcss2
 vlc
-audacity
+#audacity
 sox
 mat
 
