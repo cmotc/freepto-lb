@@ -2,21 +2,9 @@
 # where "functional" means that you can use it to do simple tests
 gigolo
 
-# Flash (Shit!)
-#flashplugin-nonfree
-
-# LibreOffice
-#libreoffice-writer
-#libreoffice-calc
-#libreoffice-impress
-
 # Multimedia
-deb-multimedia-keyring
-w32codecs
 libdvdcss2
 vlc
-#audacity
-sox
 mat
 
 # Local Wiki
