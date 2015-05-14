@@ -181,7 +181,8 @@ pulseaudio
 pulseaudio-module-bluetooth		
 pulseaudio-module-bluetooth-dbg		
 pulseaudio-module-x11			
-pulseaudio-utils			
+pulseaudio-utils
+qtox			
 rat
 reaver					
 rkhunter
@@ -204,7 +205,6 @@ turpial
 twister-core				
 unetbootin				
 unetbootin-translations			
-utox
 w3af					
 w3af-console				
 wifite					
