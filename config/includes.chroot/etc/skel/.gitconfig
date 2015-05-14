@@ -1,0 +1,10 @@
+[http]
+	proxy = http://127.0.0.1:8118
+[https]
+	proxy = https://127.0.0.1:8118
+[merge]
+	renamelimit = 15891
+[user]
+	name = cmotc
+	email = cmotc@openmailbox.org
+
