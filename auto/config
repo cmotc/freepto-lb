@@ -96,6 +96,7 @@ lb config noauto \
     live-config.locales=$LOCALE live-config.timezone=$ZONE live-config.keyboard-layouts=$KEYMAP live-boot.keymap=$KEYMAP \
     $persistence_media \
     " \
+    --verbose \
     --archive-areas "main" \
     --apt-recommends true
 
