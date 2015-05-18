@@ -62,7 +62,7 @@ EOF
 ## RUN LB CONFIG:
 
 lb config noauto \
-    -a i386 \
+    -a amd64 \
     -b hdd \
     -d jessie \
     --initsystem systemd \
