@@ -1,0 +1,10 @@
+#!/bin/bash
+# Disable the network devices
+ifconfig eth0 down
+ifconfig wlan0 down
+# Spoof the mac addresses
+/usr/bin/macchanger -r eth0
+/usr/bin/macchanger -r wlan0
+# Re-enable the devices
+ifconfig eth0 up
+ifconfig wlan0 up
