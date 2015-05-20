@@ -6,7 +6,6 @@ syslinux-common
 syslinux-efi
 aptitude
 firmware-linux-free
-firmware-linux-nonfree
 user-setup
 sudo
 cryptsetup
