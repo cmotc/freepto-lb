@@ -1,0 +1,172 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: freepto-usb-utils 0.3-1\n"
+"Report-Msgid-Bugs-To: paskao@hacari.org\n"
+"POT-Creation-Date: 2014-08-21 02:23+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Error"
+msgstr "Errore"
+
+msgid "Persistence is under creation. You must wait until the process ends."
+msgstr ""
+"La persistenza si sta creando. Devi aspettare finchè il processo non sarà "
+"finito."
+
+#, python-format
+msgid ""
+"Errors in persistence creation.\n"
+"\n"
+"Code: %s"
+msgstr ""
+"Si sono verificati degli errori durante la creazione.\n"
+"\n"
+"Codice: %s"
+
+msgid "Persistence created! You must reboot the system to use it."
+msgstr "Persistenza creata! Devi riavviare il sistema per poterla usare."
+
+msgid "Creating persistence"
+msgstr "Creando la persistenza"
+
+msgid "Completed"
+msgstr "Completato"
+
+msgid "Refresh"
+msgstr "Aggiorna"
+
+msgid "Exit"
+msgstr "Esci"
+
+msgid "Help"
+msgstr "Aiuto"
+
+msgid "About"
+msgstr "Informazioni"
+
+msgid ""
+"Persistence helper is a graphical tool to create the encrypted persistence "
+"partition for Freepto"
+msgstr ""
+"Persistence helper è uno strumento grafico per poter creare la partizione "
+"cifrata della persistenza di Freepto"
+
+msgid "No"
+msgstr ""
+
+msgid "Yes"
+msgstr "Si"
+
+msgid "Freepto device:"
+msgstr "Dispositivo di Freepto:"
+
+msgid "Persistence available:"
+msgstr "Persistenza disponibile:"
+
+msgid "Persistence mounted:"
+msgstr "Persistenza montata:"
+
+msgid "Disk size:"
+msgstr "Dimensione disco:"
+
+msgid "Live size:"
+msgstr "Dimensione live:"
+
+msgid "Persistence size:"
+msgstr "Dimensione persistenza:"
+
+msgid "Device info"
+msgstr "Informazioni del dispositivo"
+
+msgid "<b>What's that?</b>"
+msgstr "<b>Cos'è?</b>"
+
+msgid ""
+"The persistence is the encrypted space on Freepto where your data is "
+"securely stored."
+msgstr ""
+"La persistenza è lo spazio cifrato su Freepto dove i tuoi dati vengono "
+"salvati con sicurezza."
+
+msgid "<b>Status</b>"
+msgstr "<b>Stato</b>"
+
+msgid "Options"
+msgstr "Opzioni"
+
+msgid "Passphrase"
+msgstr ""
+
+msgid "Repeat passphrase"
+msgstr "Ripeti la passphrase"
+
+msgid "Fill with random data"
+msgstr "Riempi con dati casuali"
+
+msgid "Create persistence"
+msgstr "Crea la persistenza"
+
+msgid "Passphrase mismatch."
+msgstr "Le passphrase non corrispondono."
+
+msgid "Passphrase must be at least 8 characters."
+msgstr "La passphrase deve essere composta da almeno 8 caratteri."
+
+msgid ""
+"Freepto seems running on a virtual machine. This could be a risk for your "
+"privacy."
+msgstr ""
+"Sembra che Freepto sia avviata su una macchina virtuale. Questo potrebbe "
+"essere un rischio per la tua privacy."
+
+msgid ""
+"Persistence is not available, but you can create it. Fill the form and click "
+"on 'Create persistence'."
+msgstr ""
+"La persistenza non è disponibile, però puoi crearla. Riempi il form e clicca "
+"su 'Crea la persistenza'."
+
+msgid "Disk not found"
+msgstr "Disco non trovato"
+
+msgid "Persistence available an Freepto is using it."
+msgstr "La persistenza è disponibile e Freepto la sta usando."
+
+msgid ""
+"Persistence available but Freepto is not using it. You must reboot the "
+"system to use persistence."
+msgstr ""
+"La persistenza è disponibile però Freepto non la sta usando. Devi riavviare "
+"il sistema per poterla usare."
+
+msgid "Reboot the system"
+msgstr "Riavvia il sistema"
+
+msgid "Persistence mounted"
+msgstr "Persistenza montata"
+
+msgid "Persistence not mounted, but available (maybe you want to reboot?)"
+msgstr ""
+"La persistenza non è montata, pero è disponibile (magari vuoi riavviare il "
+"sistema?)"
+
+msgid "Persistence not available (do you want to create it?)"
+msgstr "La persistenza non è disponibile (magar vuoi crearla?)"
+
+msgid "Checking..."
+msgstr "Verificando..."
+
+msgid "Quit"
+msgstr "Esci"

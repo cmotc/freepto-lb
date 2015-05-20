@@ -8,6 +8,8 @@ git clone https://github.com/AvANa-BBS/synclient-tools.git pkgs/synclient-tools
 git clone https://github.com/AvANa-BBS/Tomb.git pkgs/tomb
 git clone https://github.com/AvANa-BBS/stem-tortp.git pkgs/tortp_stem
 
+rm -rf pkgs/*/.git
+
 #git clone git@github.com:AvANa-BBS/freepto-certificates.git pkgs/certificates
 #git clone git@github.com:AvANa-BBS/freepto-docs.git pkgs/freepto-docs
 #git clone git@github.com:AvANa-BBS/freepto-graphics.git pkgs/freepto-graphics

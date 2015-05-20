@@ -1,0 +1,142 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: tortp-gtk 1.1\n"
+"Report-Msgid-Bugs-To: paskao@hacari.org\n"
+"POT-Creation-Date: 2015-05-18 02:49-0400\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "About"
+msgstr "Informazioni"
+
+msgid "Quit"
+msgstr "Esci"
+
+msgid "Transparent Proxy"
+msgstr "Proxy trasparente"
+
+msgid "Infos"
+msgstr "Informazioni"
+
+msgid "Fingerprint"
+msgstr "Fingerprint"
+
+msgid "Nickname"
+msgstr "Nickname"
+
+msgid "IP address"
+msgstr "Indirizzo IP"
+
+msgid "Start"
+msgstr "Inizio"
+
+msgid "New circuit"
+msgstr "Nuovo circuito"
+
+msgid "Stop"
+msgstr "Stop"
+
+msgid "Check"
+msgstr "Verifica"
+
+msgid ""
+"TorTP redirect all TCP ad UDP (dns) traffic generated from your computer in "
+"a transparent way.\n"
+"After TorTP starts be sure that Tor is working. "
+msgstr ""
+"TorTP redirige tutto il traffico TCP e UDP (dns) generato dal tuo computer "
+"in modo trasparente.\n"
+"Dopo aver avviato TorTP assicurati che Tor stia funzionando."
+
+msgid "Tor Transparent Proxy enabled"
+msgstr "Tor Transparent Proxy attivato"
+
+#, python-format
+msgid "Unable to connect to port 9051 (%s)"
+msgstr "Non è possibile connettersi alla porta 9051 (%s)"
+
+msgid "TorTP is already running"
+msgstr "TorTP è già avviato"
+
+msgid "Tor is not running"
+msgstr "Tor non è avviato"
+
+msgid "An error occurred while starting TorTP"
+msgstr "Si è verificato un errore all'avvio di TorTP"
+
+msgid "New Tor circuit created"
+msgstr "Nuovo circuito Tor creato"
+
+msgid "Unable to change Tor circuit"
+msgstr "Non è stato possibile cambiare il circuito Tor"
+
+msgid "Tor Transparent Proxy disabled"
+msgstr "Tor Transparent Proxy disabilitato"
+
+msgid "TorTP seems already disabled"
+msgstr "TorTp sembra essere già disabilitato"
+
+msgid "An error occurred while stopping TorTP"
+msgstr "Si è verificato un errore al stoppare TorTP"
+
+#, python-format
+msgid "Congratulations. TorTP is working: %s"
+msgstr "Congratulazioni. TorTP sta funzionando: %s"
+
+#, python-format
+msgid "Sorry. TorTP is not working: %s"
+msgstr "TorTP non sta funzionando: %s"
+
+msgid "An error occurred while checking TorTP"
+msgstr "Si è verificato un errore mentre si verificava lo stato di TorTP"
+
+msgid "An error occurred while getting Tor infos"
+msgstr "Si è verificato un errore recuperando informazioni da Tor"
+
+#, python-format
+msgid "TorTP is already running with pid: %s"
+msgstr "Tor è già avviato con pid: %s"
+
+msgid "Tor Transparent Proxy"
+msgstr "Tor Transparent Proxy"
+
+msgid "Exit"
+msgstr "Esci"
+
+msgid "Help"
+msgstr "Aiuto"
+
+msgid ""
+"<b>What's TorTP?</b>\n"
+"\n"
+"TorTP is a paranoia application that prevents any traffic to be leaked out "
+"of Tor\n"
+"\n"
+"<b>Why I should use TorTP?</b>\n"
+"\n"
+"Although TorBrowser is the best solution for web browsing, sometimes you "
+"want to make sure that no traffic get leaked out of your system."
+msgstr ""
+"<b>Cos'è TorTP?</b>\n"
+"\n"
+"TorTP è un'applicazione di sicurezza che evita che dal tuo computer esca "
+"traffico che non passa tramite Tor\n"
+"\n"
+"<b>Perché dovrei usare TorTP?</b>\n"
+"\n"
+"TorBrowser è la migliore soluzione per la navigazione web, ma a volte vuoi "
+"essere sicuro che nessun traffico esca in chiaro da altri programmi."
+
+msgid "Use new circuit"
+msgstr "Usa un nuovo circuito"

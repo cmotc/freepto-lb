@@ -3,50 +3,19 @@ dpkg-buildpackage: source package freepto-passwords-changer
 dpkg-buildpackage: source version 1.1
 dpkg-buildpackage: source distribution unstable
 dpkg-buildpackage: source changed by paskao <paskao@hacari.org>
- dpkg-source --before-build equivs.RknoV2
+ dpkg-source --before-build equivs.99o83E
 dpkg-buildpackage: host architecture amd64
  fakeroot debian/rules clean
-dh_testdir
-dh_clean
- dpkg-source -b equivs.RknoV2
-dpkg-source: warning: source directory 'equivs.RknoV2' is not <sourcepackage>-<upstreamversion> 'freepto-passwords-changer-1.1'
-dpkg-source: info: using source format `1.0'
-dpkg-source: info: building freepto-passwords-changer in freepto-passwords-changer_1.1.tar.gz
-dpkg-source: info: building freepto-passwords-changer in freepto-passwords-changer_1.1.dsc
- debian/rules build
-make: Nothing to be done for 'build'.
- fakeroot debian/rules binary
-dh_testdir
-dh_testroot
-dh_prep
-dh_testdir
-dh_testroot
-dh_install
-dh_installdocs
-dh_installchangelogs
-dh_compress
-dh_fixperms
-dh_installdeb
-dh_gencontrol
-dh_md5sums
-dh_builddeb
-dpkg-deb: building package `freepto-passwords-changer' in `../freepto-passwords-changer_1.1_all.deb'.
- dpkg-genchanges  >../freepto-passwords-changer_1.1_amd64.changes
-dpkg-genchanges: including full source code in upload
- dpkg-source --after-build equivs.RknoV2
- signfile freepto-passwords-changer_1.1.dsc
-dpkg-buildpackage: full upload; Debian-native package (full source is included)
-gpg: skipped "paskao <paskao@hacari.org>": No secret key
-gpg: dpkg-sign.9VcBZuy2/freepto-passwords-changer_1.1.dsc: clearsign failed: No secret key
-dpkg-buildpackage: error: failed to sign .dsc and .changes file
-
-Error in the build process: exit status 25
+semop(2): encountered an error: Invalid argument
+/usr/bin/fakeroot: line 1: kill: (12634) - No such process
+dpkg-buildpackage: error: fakeroot debian/rules clean gave error exit status 1
+Error in the build process: exit status 1
 ## Build pkg in pkgs/freepto-docs
 virtualenv not found
 ./make_deb: line 11: virtualenv: command not found
 ## Build pkg in pkgs/freepto-usb-utils
 ...... done.
-...... done.
+..... done.
 dh_testdir
 dh_testroot
 dh_prep
@@ -91,13 +60,13 @@ dpkg-buildpackage: source package synclient-tools
 dpkg-buildpackage: source version 0.2-1
 dpkg-buildpackage: source distribution unstable
 dpkg-buildpackage: source changed by paskao <paskao@hacari.org>
- dpkg-source --before-build equivs.aM5LaF
+ dpkg-source --before-build equivs.vsIQzO
 dpkg-buildpackage: host architecture amd64
  fakeroot debian/rules clean
 dh_testdir
 dh_clean
- dpkg-source -b equivs.aM5LaF
-dpkg-source: warning: source directory 'equivs.aM5LaF' is not <sourcepackage>-<upstreamversion> 'synclient-tools-0.2'
+ dpkg-source -b equivs.vsIQzO
+dpkg-source: warning: source directory 'equivs.vsIQzO' is not <sourcepackage>-<upstreamversion> 'synclient-tools-0.2'
 dpkg-source: info: using source format `1.0'
 dpkg-source: info: building synclient-tools in synclient-tools_0.2-1.tar.gz
 dpkg-source: info: building synclient-tools in synclient-tools_0.2-1.dsc
@@ -121,11 +90,11 @@ dh_builddeb
 dpkg-deb: building package `synclient-tools' in `../synclient-tools_0.2-1_all.deb'.
  dpkg-genchanges  >../synclient-tools_0.2-1_amd64.changes
 dpkg-genchanges: including full source code in upload
- dpkg-source --after-build equivs.aM5LaF
+ dpkg-source --after-build equivs.vsIQzO
  signfile synclient-tools_0.2-1.dsc
 dpkg-buildpackage: full upload; Debian-native package (full source is included)
 gpg: skipped "paskao <paskao@hacari.org>": No secret key
-gpg: dpkg-sign.IernEo9C/synclient-tools_0.2-1.dsc: clearsign failed: No secret key
+gpg: dpkg-sign.vyiJ4A9k/synclient-tools_0.2-1.dsc: clearsign failed: No secret key
 dpkg-buildpackage: error: failed to sign .dsc and .changes file
 
 Error in the build process: exit status 25
@@ -160,6 +129,7 @@ creating tortp-0.4
 making hard links in tortp-0.4...
 hard linking setup.py -> tortp-0.4
 hard linking tortp.py -> tortp-0.4
+creating dist
 Creating tar archive
 removing 'tortp-0.4' (and everything under it)
 -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
@@ -288,7 +258,7 @@ Finished running lintian.
 Now signing changes and any dsc files...
  signfile tortp_0.4-1.dsc freepto <deb@freepto.mx>
 gpg: skipped "freepto <deb@freepto.mx>": secret key not available
-gpg: /tmp/debsign.X28xcFhI/tortp_0.4-1.dsc: clearsign failed: secret key not available
+gpg: /tmp/debsign.qHv3YkjU/tortp_0.4-1.dsc: clearsign failed: secret key not available
 debsign: gpg error occurred!  Aborting....
 debuild: fatal error at line 1295:
 running debsign failed
@@ -371,7 +341,6 @@ dpkg-genchanges: including full source code in upload
 dpkg-buildpackage: full upload; Debian-native package (full source is included)
 Now running lintian...
 E: tomb changes: changed-by-address-malformed boyska <piuttosto@logorroici.org>, paskao <paskao@hacari.org>, vinc3nt <vinc3nt@riseup.net>
-W: tomb source: diff-contains-git-control-dir .git
 W: tomb source: debhelper-but-no-misc-depends tomb
 E: tomb source: maintainer-address-malformed boyska <piuttosto@logorroici.org>, paskao <paskao@hacari.org>, vinc3nt <vinc3nt@riseup.net>
 W: tomb source: ancient-standards-version 3.9.2 (current is 3.9.6)
@@ -381,7 +350,7 @@ Finished running lintian.
 Now signing changes and any dsc files...
  signfile tomb_1.5.3.dsc boyska <piuttosto@logorroici.org>, paskao <paskao@hacari.org>, vinc3nt <vinc3nt@riseup.net>
 gpg: skipped "boyska <piuttosto@logorroici.org>, paskao <paskao@hacari.org>, vinc3nt <vinc3nt@riseup.net>": secret key not available
-gpg: /tmp/debsign.unCq9DF3/tomb_1.5.3.dsc: clearsign failed: secret key not available
+gpg: /tmp/debsign.2XZRto39/tomb_1.5.3.dsc: clearsign failed: secret key not available
 debsign: gpg error occurred!  Aborting....
 debuild: fatal error at line 1295:
 running debsign failed

@@ -1,0 +1,26 @@
+# Source: <source package name; defaults to package name>
+Section: misc
+Priority: optional
+Homepage: http://www.freepto.mx/
+
+Package: freepto-usb-utils
+Version: 1.0
+Maintainer: boyska <piuttosto@logorroici.org>, paskao <paskao@hacari.org>, vinc3nt <vinc3nt@riseup.net>
+Depends: python-gtk2, python-parted, python-pyudev, python-vte, virt-what, udisks, python, python-dbus
+Recommends: fakeroot
+Files: freepto-live-tray /usr/bin/
+  check-persistence /usr/bin/
+  check-virt /usr/bin
+  usb-disk-utility /usr/bin/
+  90-livetray /etc/X11/Xsession.d/
+  livehelper.desktop /usr/share/applications/
+  livehelper.ico /usr/share/pixmaps/
+  makefreepto /usr/bin/
+  makepersistence /usr/bin/
+  locale/es_ES/LC_MESSAGES/freepto-usb-utils.mo /usr/share/
+  locale/it_IT/LC_MESSAGES/freepto-usb-utils.mo /usr/share/
+
+Description: Graphical interface to create a new freepto
+ This package contains various small tools to get persistence status, probe
+ information about usb-storage devices, along with a graphical interface that
+ combines the previous information and creates a persistence easily.

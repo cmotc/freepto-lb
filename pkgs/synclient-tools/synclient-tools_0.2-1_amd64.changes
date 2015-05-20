@@ -1,0 +1,28 @@
+Format: 1.8
+Date: Mon, 18 May 2015 02:30:32 -0400
+Source: synclient-tools
+Binary: synclient-tools
+Architecture: source all
+Version: 0.2-1
+Distribution: unstable
+Urgency: low
+Maintainer: paskao <paskao@hacari.org>
+Changed-By: paskao <paskao@hacari.org>
+Description:
+ synclient-tools - Tools for synclient
+Changes:
+ synclient-tools (0.2-1) unstable; urgency=low
+ .
+   * First version
+Checksums-Sha1:
+ 8aff657090dd2ba18475d690e630161bb0a89a00 532 synclient-tools_0.2-1.dsc
+ 52ba6a261ef72af84cb09890bae6525e6050f460 9044 synclient-tools_0.2-1.tar.gz
+ 78e803af7d696e980e4f70a36db34ab736c144ca 8324 synclient-tools_0.2-1_all.deb
+Checksums-Sha256:
+ 8bce426b8ca10c69145d5df6805ce31de8e5e7be360029348c7ef83ba9d67310 532 synclient-tools_0.2-1.dsc
+ cf59a763800d804cdc99b77ccb81e8e63ad9d66d1225c7a7f09c0e44bb23fed2 9044 synclient-tools_0.2-1.tar.gz
+ 5d31c168a594cb373fcb7ee3f48393c051f506a850b02ad02394b2893c8b9670 8324 synclient-tools_0.2-1_all.deb
+Files:
+ 7c8db6fa80c674fffb67a9030003319f 532 misc optional synclient-tools_0.2-1.dsc
+ 2833b0f1e45a2a15dc15ed54ce6c9893 9044 misc optional synclient-tools_0.2-1.tar.gz
+ e59a1b7380e493260590639ceb76b9cb 8324 misc optional synclient-tools_0.2-1_all.deb

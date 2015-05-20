@@ -1,0 +1,11 @@
+ dpkg-buildpackage -rfakeroot -D -us -uc -i -F
+dpkg-buildpackage: source package freepto-graphics
+dpkg-buildpackage: source version 1:1.0.0
+dpkg-buildpackage: source distribution unstable
+dpkg-buildpackage: source changed by boyska <piuttosto@logorroici.org>
+ dpkg-source -i --before-build freepto-graphics
+dpkg-buildpackage: host architecture amd64
+dpkg-source: warning: unknown information field 'Depends' in input data in general section of control info file
+dpkg-checkbuilddeps: Unmet build dependencies: faketime
+dpkg-buildpackage: warning: build dependencies/conflicts unsatisfied; aborting
+dpkg-buildpackage: warning: (Use -d flag to override.)

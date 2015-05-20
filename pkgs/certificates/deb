@@ -1,0 +1,20 @@
+# Source: <source package name; defaults to package name>
+Section: misc
+Priority: optional
+Homepage: http://www.freepto.mx/
+
+Package: freepto-certificates
+Version: 0.1
+Maintainer: vinc3nt <vinc3nt@riseup.net>
+Postinst: postinst
+Postrm: postrm
+Depends: ca-certificates
+Files: ai.crt /usr/share/ca-certificates/
+ freepto.crt /usr/share/ca-certificates/
+ ortiche.crt /usr/share/ca-certificates/
+ riseup.crt /usr/share/ca-certificates/
+ sks-keyservers.crt /usr/share/ca-certificates/
+
+Description: This is a Freepto package that include the root CA certificates
+ of the autonomous services: Autistici/Inventati, Ortiche, RiseUp
+ And other useful CA (freepto ca, sks-keyservers).

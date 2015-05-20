@@ -1,0 +1,28 @@
+Format: 1.8
+Date: Sat, 18 Oct 2014 22:10:41 +0200
+Source: tomb
+Binary: tomb
+Architecture: source all
+Version: 1.5.3
+Distribution: unstable
+Urgency: low
+Maintainer: boyska <piuttosto@logorroici.org>, paskao <paskao@hacari.org>, vinc3nt <vinc3nt@riseup.net>
+Changed-By: boyska <piuttosto@logorroici.org>, paskao <paskao@hacari.org>, vinc3nt <vinc3nt@riseup.net>
+Description:
+ tomb       - the crypto undertaker
+Changes:
+ tomb (1.5.3) unstable; urgency=low
+ .
+   * First version
+Checksums-Sha1:
+ 208d89c199525ac96981ad2614df8665d9ef49d1 572 tomb_1.5.3.dsc
+ 1bf23dd208bfd978f701e3aec0376374193ac93e 4675686 tomb_1.5.3.tar.gz
+ 1f1c99fd4b550ee6690769f04ac0cdfd7ffdd635 29742 tomb_1.5.3_all.deb
+Checksums-Sha256:
+ aa21600e45f9c06cca7fbcc37434c8df6c79db67a78d66cad40c2bd1cf313f4e 572 tomb_1.5.3.dsc
+ 3a4f2c929ed79bc088c8ecbdc6db91290db85cf510816a4a114272117501175a 4675686 tomb_1.5.3.tar.gz
+ 5526f65807a21b2dd7118855db82ad6766bb4d7bc55a4183d1ef44ffda9cc890 29742 tomb_1.5.3_all.deb
+Files:
+ f110807ec0df17761dcf63a3951eeba5 572 misc optional tomb_1.5.3.dsc
+ 4be53aa6aff5e7008275626622eab527 4675686 misc optional tomb_1.5.3.tar.gz
+ 448a0cf995bc4ade962b8e165cbdb964 29742 misc optional tomb_1.5.3_all.deb

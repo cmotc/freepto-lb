@@ -1,0 +1,50 @@
+ dpkg-buildpackage -rfakeroot -D -us -uc -i -F
+dpkg-buildpackage: source package tomb
+dpkg-buildpackage: source version 1.5.3
+dpkg-buildpackage: source distribution unstable
+dpkg-buildpackage: source changed by boyska <piuttosto@logorroici.org>, paskao <paskao@hacari.org>, vinc3nt <vinc3nt@riseup.net>
+ dpkg-source -i --before-build tomb
+dpkg-buildpackage: host architecture amd64
+ fakeroot debian/rules clean
+dh_testdir
+dh_clean
+ dpkg-source -i -b tomb
+dpkg-source: warning: source directory 'tomb' is not <sourcepackage>-<upstreamversion> 'tomb-1.5.3'
+dpkg-source: info: using source format `1.0'
+dpkg-source: info: building tomb in tomb_1.5.3.tar.gz
+dpkg-source: info: building tomb in tomb_1.5.3.dsc
+ debian/rules build
+make: Nothing to be done for 'build'.
+ fakeroot debian/rules binary
+dh_testdir
+dh_testroot
+dh_prep
+dh_testdir
+dh_testroot
+dh_install
+dh_installdocs
+dh_installchangelogs
+dh_compress
+dh_fixperms
+dh_installdeb
+dh_gencontrol
+dh_md5sums
+dh_builddeb
+dpkg-deb: building package `tomb' in `../tomb_1.5.3_all.deb'.
+ dpkg-genchanges  >../tomb_1.5.3_amd64.changes
+dpkg-genchanges: including full source code in upload
+ dpkg-source -i --after-build tomb
+dpkg-buildpackage: full upload; Debian-native package (full source is included)
+Now running lintian...
+E: tomb changes: changed-by-address-malformed boyska <piuttosto@logorroici.org>, paskao <paskao@hacari.org>, vinc3nt <vinc3nt@riseup.net>
+W: tomb source: debhelper-but-no-misc-depends tomb
+E: tomb source: maintainer-address-malformed boyska <piuttosto@logorroici.org>, paskao <paskao@hacari.org>, vinc3nt <vinc3nt@riseup.net>
+W: tomb source: ancient-standards-version 3.9.2 (current is 3.9.6)
+W: tomb: description-synopsis-starts-with-article
+E: tomb: maintainer-address-malformed boyska <piuttosto@logorroici.org>, paskao <paskao@hacari.org>, vinc3nt <vinc3nt@riseup.net>
+Finished running lintian.
+Now signing changes and any dsc files...
+ signfile tomb_1.5.3.dsc boyska <piuttosto@logorroici.org>, paskao <paskao@hacari.org>, vinc3nt <vinc3nt@riseup.net>
+gpg: skipped "boyska <piuttosto@logorroici.org>, paskao <paskao@hacari.org>, vinc3nt <vinc3nt@riseup.net>": secret key not available
+gpg: /tmp/debsign.2XZRto39/tomb_1.5.3.dsc: clearsign failed: secret key not available
+debsign: gpg error occurred!  Aborting....

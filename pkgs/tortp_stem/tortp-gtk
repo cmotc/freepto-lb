@@ -1,0 +1,356 @@
+#!/usr/bin/env python
+import pygtk
+pygtk.require('2.0')
+import gtk
+import atexit
+import os
+import sys
+import gobject
+import gettext
+import tortp
+try:
+    import pynotify
+    pynotify.init("TorTP")
+    pynotify_available = True
+except:
+    pynotify_available = False
+
+gettext.textdomain('tortp-gtk')
+_ = gettext.gettext
+
+
+def notify(title, message):
+    """
+    Notify the given message with the notification system
+    """
+    if pynotify_available:
+        notice = pynotify.Notification(title, message, "/usr/share/pixmaps/anonymous.ico")
+        notice.show()
+    return
+
+def check_if_running():
+    """
+    Check if TorTP-GTK is already running
+    """
+    if os.path.exists("/var/run/tortp-gtk.pid"):
+        notify("TorTP", _("TorTP is already running with pid: %s" % get_pid()))
+        sys.exit(2)
+
+def get_pid():
+    """
+    Get TorTP-GTK pid
+    """
+    p = open("/var/run/tortp-gtk.pid", "r")
+    pid = p.read()
+    return pid
+
+def create_pid():
+    """
+    Create TorTP-GTK pidfile
+    """
+    pidfile = open("/var/run/tortp-gtk.pid", "w")
+    pidfile.write("%s" % os.getpid())
+    pidfile.close
+
+def cleanup():
+    """
+    remove TorTP-GTK pidfile
+    """
+    os.remove('/var/run/tortp-gtk.pid')
+
+def show_about_dialog(widget, data=None):
+    """
+    Show the about dialog
+    """
+    about_dialog = gtk.AboutDialog()
+    about_dialog.set_destroy_with_parent(True)
+    about_dialog.set_name("Tor Transparent Proxy")
+    about_dialog.set_website("https://github.com/AvANa-BBS/stem-tortp")
+    about_dialog.set_version("0.4")
+    about_dialog.set_authors(["vinc3nt (vinc3nt@riseup.net)", "paskao (paskao@hacari.org)"])
+    about_dialog.run()
+    about_dialog.destroy()
+
+
+
+class Icon(gtk.StatusIcon):
+    """
+    The status icon for tortp-gtk.
+    When clicking on it, the tortp-gtk window will be opened.
+    """
+
+    def __init__(self):
+        gtk.StatusIcon.__init__(self)
+        self.set_from_file('/usr/share/pixmaps/anonymous.ico')
+        self.connect("activate", self.load)
+        self.connect("popup-menu", self.right_click_event)
+        self.set_tooltip("TorTP")
+        self.window = None
+        self.load(None)
+
+    def start(self):
+        gtk.main()
+
+    def stop(self):
+        gtk.main_quit()
+
+    def load(self, param):
+        if self.window is None:
+            self.window = MainWindow()
+            self.window.resize(500, 300)
+            self.window.connect("destroy", self.clear_window)
+
+    def clear_window(self, widget, data=None):
+        self.window = None
+
+    def right_click_event(self, icon, button, time):
+        """
+        Display a menu with the relative actions for the status icon
+        """
+        menu = gtk.Menu()
+        about = gtk.MenuItem(_("About"))
+        quit = gtk.MenuItem(_("Quit"))
+
+        about.connect("activate", show_about_dialog)
+        quit.connect("activate", gtk.main_quit)
+
+        menu.append(about)
+        menu.append(quit)
+        menu.show_all()
+        menu.popup(None, None, gtk.status_icon_position_menu, button, time, self)
+
+
+
+class MainWindow(gtk.Window):
+    """
+    This is the main window of tortp-gtk. Here the user can control the status
+    of tortp and can read the some tor infos.
+    """
+
+    def __init__(self):
+        gtk.Window.__init__(self, gtk.WINDOW_TOPLEVEL)
+        self.set_icon_from_file('/usr/share/pixmaps/anonymous.ico')
+
+        # Create the main menu
+        menu_bar = gtk.MenuBar()
+        menu_bar.append(self.get_file_menu())
+        menu_bar.append(self.get_help_menu())
+
+        notebook = gtk.Notebook()
+
+        box = gtk.VBox(False)
+        box.pack_start(menu_bar, expand=False, padding=0)
+        box.pack_start(notebook, expand=True, padding=6)
+        self.add(box)
+
+        # Adding tabs
+        tp = TransparentProxyBox()
+        label = gtk.Label(_("Tor Transparent Proxy"))
+        notebook.append_page(tp, label)
+
+        info_box = self.get_info_box()
+        label_info = gtk.Label(_("Infos"))
+        notebook.append_page(info_box, label_info)
+
+        self.show_all()
+
+    def get_file_menu(self):
+        """
+        Return the file menu widget
+        """
+        menu = gtk.MenuItem('File')
+        submenu = gtk.Menu()
+
+        exit = gtk.ImageMenuItem(gtk.STOCK_QUIT, _('Exit'))
+        exit.connect('activate', gtk.main_quit)
+
+        menu.set_submenu(submenu)
+        submenu.append(exit)
+        return menu
+
+    def get_help_menu(self):
+        """
+        Return the help menu widget
+        """
+        menu = gtk.MenuItem(_('Help'))
+        submenu = gtk.Menu()
+
+        about = gtk.ImageMenuItem(gtk.STOCK_ABOUT, _('About'))
+        about.connect('activate', show_about_dialog)
+
+        menu.set_submenu(submenu)
+        submenu.append(about)
+        return menu
+
+    def get_info_box(self):
+        """
+        Return the info box widget placed into a scrolled window
+        """
+        tpinfo = TransparentProxyInfoBox()
+        tpinfo.set_scroll_adjustments(None, None)
+        scroll = gtk.ScrolledWindow()
+        scroll.set_policy(gtk.POLICY_NEVER, gtk.POLICY_ALWAYS)
+        scroll.add_with_viewport(tpinfo)
+        return scroll
+
+
+
+class TransparentProxyInfoBox(gtk.VBox):
+    """
+    In this widget are displayed some infos about the status of tor
+    """
+
+    def __init__(self):
+        gtk.VBox.__init__(self)
+
+        # Create TreeView widgets
+        self.liststore = gtk.ListStore(str, str, str)
+        self.treeview = gtk.TreeView(model=self.liststore)
+
+        renderer_text = gtk.CellRendererText()
+        column0 = gtk.TreeViewColumn(_("Fingerprint"), renderer_text, text=0)
+        self.treeview.append_column(column0)
+        column1 = gtk.TreeViewColumn(_("Nickname"), renderer_text, text=1)
+        self.treeview.append_column(column1)
+        column2 = gtk.TreeViewColumn(_("IP address"), renderer_text, text=2)
+        self.treeview.append_column(column2)
+        self.load_model()
+
+        self.pack_start(self.treeview, True)
+
+    def load_model(self):
+       self.liststore.clear()
+       exit_node = tortp.get_exit()
+       try:
+           for i in exit_node['count']:
+               item = []
+               item.append(exit_node['fingerprint'][i])
+               item.append(exit_node['nickname'][i])
+               item.append(exit_node['ipaddress'][i])
+               self.liststore.append(item)
+       except SystemExit as e:
+           if e.code == 1:
+               notify("TorTP", _("Tor is not running"))
+           else:
+               notify("TorTP", _("An error occurred while getting Tor infos"))
+       except:
+           pass
+       gobject.timeout_add_seconds(5, self.load_model)
+
+
+
+class TransparentProxyBox(gtk.VBox):
+    """
+    In this widget are displayed infos and buttons to control the tortp status
+    """
+
+    def __init__(self):
+        gtk.VBox.__init__(self)
+
+        # Create description
+        self.description_text = _("""<b>What's TorTP?</b>\n
+TorTP is a paranoia application that prevents any traffic to be leaked out of Tor\n
+<b>Why I should use TorTP?</b>\n
+Although TorBrowser is the best solution for web browsing, sometimes you want to make sure that no traffic get leaked out of your system.""")
+        self.description = gtk.Label()
+        self.description.set_markup(self.description_text)
+        self.description.set_line_wrap(True)
+        self.description.set_single_line_mode(False)
+
+        # Create buttons
+        self.start_button = gtk.Button(_("Start"))
+        self.change_button = gtk.Button(_("Use new circuit"))
+        self.stop_button = gtk.Button(_("Stop"))
+        self.check_button = gtk.Button(_("Check"))
+
+        # Connect buttons
+        self.start_button.connect("clicked", self.start, None)
+        self.change_button.connect("clicked", self.change, None)
+        self.stop_button.connect("clicked", self.stop, None)
+        self.check_button.connect("clicked", self.check, None)
+
+        # Add components
+        self.buttons_box = gtk.HButtonBox()
+        self.buttons_box.set_layout(gtk.BUTTONBOX_END)
+        self.buttons_box.add(self.start_button)
+        self.buttons_box.add(self.change_button)
+        self.buttons_box.add(self.stop_button)
+        self.buttons_box.add(self.check_button)
+        self.pack_start(self.description, True)
+        self.pack_start(self.buttons_box, True)
+
+        self.refresh()
+
+    def refresh(self):
+        """
+        Get the tortp satus and refresh the controls
+        """
+        is_running = tortp.is_running()
+        self.start_button.set_sensitive(not is_running)
+        self.change_button.set_sensitive(is_running)
+        self.stop_button.set_sensitive(is_running)
+        self.check_button.set_sensitive(is_running)
+
+    def start(self, widget, data=None):
+        try:
+            tortp.do_start()
+            notify("TorTP", _("Tor Transparent Proxy enabled"))
+            self.refresh()
+        except SystemExit as e:
+            if e.code == 1:
+                notify("TorTP", _("Unable to connect to port 9051 (%s)") % e)
+            elif e.code == 2:
+                notify("TorTP", _("TorTP is already running"))
+            elif e.code == 3:
+                notify("TorTP", _("Tor is not running"))
+            else:
+                notify("TorTP", _("An error occurred while starting TorTP"))
+        except:
+            notify("TorTP", _("An error occurred while starting TorTP"))
+
+    def change(self, widget, data=None):
+        try:
+            tortp.tor_new()
+            notify("TorTP", _("New Tor circuit created"))
+        except SystemExit as e:
+            if e.code == 1:
+                notify("TorTP", _("Unable to connect to port 9051 (%s)") % exc)
+            else:
+                notify("TorTP", _("Unable to change Tor circuit"))
+        except:
+            notify("TorTP", _("Unable to change Tor circuit"))
+
+    def stop(self, widget, data=None):
+        try:
+            tortp.do_stop()
+            notify("TorTP", _("Tor Transparent Proxy disabled"))
+            self.refresh()
+        except SystemExit as e:
+            if e.code == 1:
+                notify("TorTP", _("TorTP seems already disabled"))
+            else:
+                notify("TorTP", _("An error occurred while stopping TorTP"))
+        except:
+            notify("TorTP", _("An error occurred while stopping TorTP"))
+
+    def check(self, widget, data=None):
+        myip = None
+        try:
+            myip = tortp.do_check()
+            notify("TorTP", _("Congratulations. TorTP is working: %s") % myip)
+        except SystemExit as e:
+            if e.code == 1:
+                notify("TorTP", _("Sorry. TorTP is not working: %s") % myip)
+            else:
+                notify("TorTP", _("An error occurred while checking TorTP"))
+        except:
+            notify("TorTP", _("An error occurred while checking TorTP"))
+
+
+atexit.register(cleanup)
+
+if __name__ == "__main__":
+    check_if_running()
+    create_pid()
+    icon = Icon()
+    icon.start()
